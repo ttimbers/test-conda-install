@@ -5,6 +5,7 @@ FROM jupyter/r-notebook:notebook-6.4.3
 LABEL maintainer="Tiffany Timbers <tiffany.timbers@gmail.com>"
 
 # Install R packages on conda-forge
+COPY environment.yml .
 RUN conda env update --file environment.yml
 
 # we can't use testthat 2.3 because of weird "no testthat_print" function error https://github.com/r-lib/rlang/issues/1112
